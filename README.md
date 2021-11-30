@@ -93,11 +93,25 @@ I changed the mode of this file *executable*.
 
 I edited the `<projectDir>/.git/hooks/pre-commit` so that it executes the `readmeconv.sh` script on `git commit`.
 
-    #!/usr/bin/env bash
-    git secrets --pre_commit_hook -- "$@"
-
-    # convert README.adoc to README.md
-    ./readmeconv.sh
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><p>#!/usr/bin/env bash</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p>git secrets --pre_commit_hook — "$@"</p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><p># convert README.adoc to README.md</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p>./readmeconv.sh</p></td>
+</tr>
+</tbody>
+</table>
 
 ### GitHub repository setting
 

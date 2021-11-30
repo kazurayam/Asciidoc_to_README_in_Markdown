@@ -106,9 +106,9 @@ $ chmod +x ./readmeconv.sh
 I edited the `<projectDir>/.git/hooks/pre-commit` so that it executes the `readmeconv.sh` script on `git commit`.
 
 [source,shell]
-----
+,===
 include::.git/hooks/pre-commit[]
-----
+,===
 
 === GitHub repository setting
 

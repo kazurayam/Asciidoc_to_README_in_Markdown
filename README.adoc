@@ -1,30 +1,26 @@
 = Include directive is not supported in Github-flavored Asciidoc --- a workaround
 
-In a GitHub repository, you can make a file named `README.adoc` in https://asciidoc-py.github.io/index.html[Asciidoc] format. GitHub is able to convert Asciidoc text to HTML runtime so that it renders in browsers. You can enjoy Asciidoc capabilities to author your documents and publish them in GitHub. A sample is here: 
+== Problem to solve
+
+In a GitHub repository, you can make a file named `README.adoc` in https://asciidoc-py.github.io/index.html[Asciidoc] format. GitHub is able to convert Asciidoc text to HTML runtime so that it renders in browsers. A sample is here:
 
 - https://github.com/kazurayam/IncludeIsNotSupportedInGithubFlavoredAsciidoc-a_workaround/blob/master/article.adoc[article.adoc]
 
+This looks very nice! You can enjoy the Asciidoc capabilities to author your documents and publish them in GitHub.
+However, there is a caveat in GitHub Flavored Asciidoc. *GitHub Flavored Asciidoc does not support the `include::path/to/file[]` directive.* See the subsection titled "Include directive" at the tail of https://github.com/kazurayam/IncludeIsNotSupportedInGithubFlavoredAsciidoc-a_workaround/blob/master/article.adoc[article.adoc].
 
+image::docs/images/Include_directive_not_working.png[Include directive not working]
 
-However, there is a defect.
+I intended to embed the source code of my Java program into the article for reference. I expected to see something as follows.
 
-GitHub-flavored-Asciidoc does not support `include::file/path/to/include[]` directive.
+Here we include the source code of the file `src/main/java/my/Hello.java`.
 
-== Section
-
-=== Subsection
-
-
-My first Java program is here:
+== Include directive
 
 [source,java]
 ----
 include::src/main/java/my/Hello.java[]
 ----
-
-=== Subsection
-
-
 
 
 A workaround developed by @chevdoor at 9th June 2021

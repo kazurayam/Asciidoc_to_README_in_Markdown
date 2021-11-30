@@ -2,30 +2,29 @@
 
 ## Problem to solve
 
-In a GitHub repository, you can make a file named `README.adoc` in [Asciidoc](https://asciidoc-py.github.io/index.html) format. GitHub is able to convert Asciidoc text to HTML runtime so that it renders in browsers. A sample is here:
+In a GitHub repository, you can make a file named `README.adoc` in [Asciidoc](https://asciidoc-py.github.io/index.html) format. GitHub is able to convert Asciidoc text to HTML runtime so that it renders in browsers. You can enjoy the Asciidoc capabilities to author your documents and publish them in GitHub. A sample is here:
 
 -   [article.adoc](https://github.com/kazurayam/IncludeIsNotSupportedInGithubFlavoredAsciidoc-a_workaround/blob/master/article.adoc)
 
-This looks very nice! You can enjoy the Asciidoc capabilities to author your documents and publish them in GitHub.
 However, there is a caveat in GitHub Flavored Asciidoc. **GitHub Flavored Asciidoc (GFA) does not support the `include::path/to/file[]` directive.** See the subsection titled "Include directive" at the tail of [article.adoc](https://github.com/kazurayam/IncludeIsNotSupportedInGithubFlavoredAsciidoc-a_workaround/blob/master/article.adoc).
 
 ![Include directive not working](docs/images/Include_directive_not_working.png)
 
-I intended to embed the source code of my Java program into the article for reference. I expected to see something as follows.
+This is not what I expected to see! I wanted to see the source code of my Java program embedded into the article, as follows.
 
 ![Include directive as expected](docs/images/Include_directive_as_expected.png)
 
-I need the Include directive in Asciidoc. Seriously! The include directive is the very reason why I want to use Asciidoc, instead of Markdown, to author the README doc of my software projects on GitHub.
+I need the Include directive in Asciidoc to work in my README documents on GitHub. Seriously! The include directive is the very reason why I want to use Asciidoc, instead of Markdown. 
 
 Why GitHub does not support Include directive in Asciidoc? --- There is a discussion about it, which was opened 4 years ago and still remain open.
 
 -   [Asciidoctor: support include directives for other asciidoc files #1095](https://github.com/github/markup/issues/1095)
 
-As far as I learned from this discussion, it seems unlikely that GitHub adds Include directive support in GFA in future. Very disappointing. Any workaround?
+As far as I learned from this discussion, it seems unlikely that GitHub adds the Include directive support in GFA in future. Any workaround?
 
 ## Solution
 
-In [the discussion](https://github.com/github/markup/issues/1095), @chevdoor posted a workround at 9th June 2021. Here I will quite his post entirely.
+In [the discussion](https://github.com/github/markup/issues/1095), @chevdoor posted his workaround at 9th June 2021. Here I will quite his post entirely.
 
     This is by far my favorite workaround although it requires a little setup and tooling.
     Install pandoc and asciidoctor, you can then create a new (executable) .gti/hooks/pre-commit file with the following content:

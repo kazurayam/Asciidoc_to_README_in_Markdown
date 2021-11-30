@@ -10,21 +10,21 @@ However, there is a caveat in GitHub Flavored Asciidoc. **GitHub Flavored Asciid
 
 ![Include directive not working](docs/images/Include_directive_not_working.png)
 
-This is not what I expected to see! I wanted to see the source code of my Java program embedded into the article, as follows.
+This is not what I wanted to see! I want the code embeded into the document, as follows.
 
 ![Include directive as expected](docs/images/Include_directive_as_expected.png)
 
-I need the Include directive in Asciidoc to work in my README documents on GitHub. Seriously! The include directive is the very reason why I want to use Asciidoc, instead of Markdown. 
+I need the Include directive in my README documents in Asciidoc on GitHub. Seriously! The include directive is the very reason why I want to use Asciidoc, instead of Markdown.
 
 Why GitHub does not support Include directive in Asciidoc? --- There is a discussion about it, which was opened 4 years ago and still remain open.
 
 -   [Asciidoctor: support include directives for other asciidoc files #1095](https://github.com/github/markup/issues/1095)
 
-As far as I learned from this discussion, it seems unlikely that GitHub adds the Include directive support in GFA in future. Any workaround?
+As far as I learned from this discussion, it seems unlikely that GitHub adds the Include directive support in future. Is there any workaround?
 
 ## Solution
 
-In [the discussion](https://github.com/github/markup/issues/1095), @chevdoor posted his workaround at 9th June 2021. Here I will quite his post entirely.
+In [the discussion](https://github.com/github/markup/issues/1095), @chevdoor posted a workaround at 9th June 2021. Here I will quote his post entirely.
 
     This is by far my favorite workaround although it requires a little setup and tooling.
     Install pandoc and asciidoctor, you can then create a new (executable) .gti/hooks/pre-commit file with the following content:
@@ -54,7 +54,7 @@ In [the discussion](https://github.com/github/markup/issues/1095), @chevdoor pos
 
     To cheer us up, this option comes with a small benefit: your asciidoc is now linted before you ever commit, so you will spot wrong includes paths before your commit makes it in.
 
-This worked for me as well.
+This worked for me! So I decided to introduce it into my projects.
 
 ## Description
 

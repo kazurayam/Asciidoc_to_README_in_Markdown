@@ -1,6 +1,23 @@
 = AsciiDoc Article Title
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+[NOTE]
+====
+This page is quoted from https://asciidoctor.org/docs/asciidoc-article/[the official Asciidoc Article Template],
+with a subsection "Include directive" added at the tail.
+====
+
+
 Firstname Lastname <author@asciidoctor.org>
 3.0, July 29, 2022: AsciiDoc article template
+
 :toc:
 :icons: font
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/

@@ -108,7 +108,7 @@ I edited the `<projectDir>/.git/hooks/pre-commit` so that it executes the `readm
 include::.git/hooks/pre-commit[]
 ----
 
-=== You should name it as `REAMDE_.adoc`, rather thann `README.adoc`
+=== Name it `REAMDE_.adoc`, not `README.adoc`
 
 The official GitHub doc https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes[About READMEs] says:
 

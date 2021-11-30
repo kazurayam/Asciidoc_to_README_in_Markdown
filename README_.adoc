@@ -10,7 +10,7 @@ However, there is a caveat in GitHub Flavored Asciidoc. *GitHub Flavored Asciido
 
 image::docs/images/Include_directive_not_working.png[Include directive not working]
 
-This is not what I wanted to see! I want the code embeded into the document, as follows.
+This is not what I wanted to see! I wanted the code embedded into the document, as follows.
 
 image::docs/images/Include_directive_as_expected.png[Include directive as expected]
 
@@ -24,7 +24,7 @@ As far as I learned from this discussion, it seems unlikely that GitHub adds the
 
 == Solution
 
-In https://github.com/github/markup/issues/1095[the discussion], @chevdoor posted a workaround at 9th June 2021. Here I will quote his post entirely.
+In https://github.com/github/markup/issues/1095[the discussion], @chevdoor posted a workaround at 9th June 2021. Here I will quote his post entirely for easier reference.
 
 [quote, 'https://github.com/github/markup/issues/1095[Asciidoctor: support include directives for other asciidoc files #1095]']
 ----
@@ -119,4 +119,8 @@ If you put your README file in your repository's root, docs, or hidden .github d
 
 So, what if you have 2 files `README.adoc` and `README.md` together in the repository's root, which file will be rendered when you visit the top page? --- I examined and found out that `README.adoc` wins, `README.md` won't be surfaced. If I make a `README.adoc` file to generate `README.md`, yes, it works. But GitHub won't choose the `README.md`. It will choose the `README.adoc`. I do not like this to happen. How can I overcome this problem?
 
-Name your Asciidoc document as `README_.adoc` with a meaningless underbar character appended. The `readmeconv.sh` script can convert the `README_.adoc` file into `README.md`, and GitHub will happily surface the generated `README.md` to us. The problem solved.
+Name your Asciidoc document as `README_.adoc` with a meaningless underbar character appended. The `readmeconv.sh` script can convert the `README_.adoc` file into `README.md`, and GitHub will happily surface the generated `README.md` to us. 
+
+== Conclusion
+
+The `include` directive makes it far easier and enjoyable writing documents of software projects. With `include`, I do not have to copy the lines of code from the program sources into the README document; I do not have to be worried about forgetting to re-copy&paste after the program sources are updated. The workaroud by @chevdoor worked for me. It enabled me to author README documents of my GitHub repositories in Asciidoc.

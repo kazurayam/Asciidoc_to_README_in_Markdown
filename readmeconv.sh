@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # convert all the files with name ending with `*.adoc` into `*.md`. 
 # except ones with `_` as prefix.
 # E.g, `readme_.adoc` will be converted into `readme_.md`

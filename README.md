@@ -98,7 +98,7 @@ I edited the `<projectDir>/.git/hooks/pre-commit` so that it executes the `readm
     # convert README_.adoc to README.md
     ./readmeconv.sh
 
-### You should name it as `REAMDE_.adoc`, rather thann `README.adoc`
+### Name it `REAMDE_.adoc`, not `README.adoc`
 
 The official GitHub doc [About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) says:
 

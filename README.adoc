@@ -25,5 +25,35 @@ As far as I learned from this discussion, it seems unlikely that GitHub adds Inc
 
 == Solution
 
-In https://github.com/github/markup/issues/1095[the discussion], @chevdoor posted a workround at 9th June 2021.
+In https://github.com/github/markup/issues/1095[the discussion], @chevdoor posted a workround at 9th June 2021. Here I will quite his post entirely.
+
+[quote, 'https://github.com/github/markup/issues/1095[Asciidoctor: support include directives for other asciidoc files #1095]']
+----
+Git hook
+This is by far my favorite workaround although it requires a little setup and tooling.
+Install pandoc and asciidoctor, you can then create a new (executable) .gti/hooks/pre-commit file with the following content:
+
+#!/usr/bin/env bash
+
+# convert all the files in the root
+find . -iname "*.adoc" -type f -maxdepth 1 -not -name "_*.adoc" | while read fname; do
+  target=${fname//adoc/md}
+  xml=${fname//adoc/xml}
+  echo "converting $fname into $target"
+
+  asciidoctor -b docbook -a leveloffset=+1 -o - "$fname" | pandoc  --markdown-headings=atx --wrap=preserve -t markdown_strict -f docbook - > "$target"
+  echo deleting $xml
+  rm -f "$xml"
+done
+
+# if we find a readme*.md, we rename to README.md
+find . -iname "readme*.md" -not -name "README.md" -type f -maxdepth 1 | while read fname; do
+  echo Renaming $fname to README.md
+  mv $fname README.md
+done
+The script will look for all the adoc files in the root of your project (except those starting with _) and convert them. Since github picks the asciidoc by default when you have both a README.adoc and a README.md 🤦 , I have to further get my README.adoc out of the way renaming to README_src.adoc) and add extra renaming to the script.
+
+To cheer us up, this option comes with a small benefit: your asciidoc is now linted before you ever commit, so you will spot wrong includes paths before your commit makes it in.
+----
+
 

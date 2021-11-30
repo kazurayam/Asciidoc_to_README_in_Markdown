@@ -10,7 +10,7 @@ However, there is a caveat in GitHub Flavored Asciidoc. **GitHub Flavored Asciid
 
 ![Include directive not working](docs/images/Include_directive_not_working.png)
 
-This is not what I wanted to see! I want the code embeded into the document, as follows.
+This is not what I wanted to see! I wanted the code embedded into the document, as follows.
 
 ![Include directive as expected](docs/images/Include_directive_as_expected.png)
 
@@ -24,7 +24,7 @@ As far as I learned from this discussion, it seems unlikely that GitHub adds the
 
 ## Solution
 
-In [the discussion](https://github.com/github/markup/issues/1095), @chevdoor posted a workaround at 9th June 2021. Here I will quote his post entirely.
+In [the discussion](https://github.com/github/markup/issues/1095), @chevdoor posted a workaround at 9th June 2021. Here I will quote his post entirely for easier reference.
 
     This is by far my favorite workaround although it requires a little setup and tooling.
     Install pandoc and asciidoctor, you can then create a new (executable) .gti/hooks/pre-commit file with the following content:
@@ -86,31 +86,19 @@ I added a shell script named [&lt;projectDir>/readmeconv.sh](readmeconv.sh) in t
 
 I changed the mode of this file *executable*.
 
+    ----.
     $ chmod +x ./readmeconv.sh
+    ----
 
 ### Git hook
 
 I edited the `<projectDir>/.git/hooks/pre-commit` so that it executes the `readmeconv.sh` script on `git commit`.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><p>#!/usr/bin/env bash</p></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><p>git secrets --pre_commit_hook — "$@"</p></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><p># convert README.adoc to README.md</p></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><p>./readmeconv.sh</p></td>
-</tr>
-</tbody>
-</table>
+    #!/usr/bin/env bash
+    git secrets --pre_commit_hook -- "$@"
+
+    # convert README_.adoc to README.md
+    ./readmeconv.sh
 
 ### You should name it as `REAMDE_.adoc`, rather thann `README.adoc`
 
@@ -120,4 +108,8 @@ The official GitHub doc [About READMEs](https://docs.github.com/en/repositories/
 
 So, what if you have 2 files `README.adoc` and `README.md` together in the repository’s root, which file will be rendered when you visit the top page? --- I examined and found out that `README.adoc` wins, `README.md` won’t be surfaced. If I make a `README.adoc` file to generate `README.md`, yes, it works. But GitHub won’t choose the `README.md`. It will choose the `README.adoc`. I do not like this to happen. How can I overcome this problem?
 
-Name your Asciidoc document as `README_.adoc` with a meaningless underbar character appended. The `readmeconv.sh` script can convert the `README_.adoc` file into `README.md`, and GitHub will happily surface the generated `README.md` to us. The problem solved.
+**You should name your Asciidoc document as `README_.adoc`** with a meaningless underbar character appended. The `readmeconv.sh` script can convert the `README_.adoc` file into `README.md`. GitHub will not choose `README_.adoc` as the repositories README; it will find `README.md` and happily surface it to us.
+
+## Conclusion
+
+The `include` directive makes it far easier and enjoyable writing documents of software projects. With `include`, I do not have to copy the lines of code from the program sources into the README document; I do not have to be worried about forgetting to re-copy&paste after the program sources are updated. The workaroud by @chevdoor worked for me. It enabled me to author README documents of my GitHub repositories in Asciidoc.

@@ -95,7 +95,7 @@ I added a shell script named link:readmeconv.sh[<projectDir>/readmeconv.sh] in t
 I changed the mode of this file _executable_.
 
 [source]
-----
+----.
 $ chmod +x ./readmeconv.sh
 ----
 
@@ -104,9 +104,9 @@ $ chmod +x ./readmeconv.sh
 I edited the `<projectDir>/.git/hooks/pre-commit` so that it executes the `readmeconv.sh` script on `git commit`.
 
 [source,shell]
-,===
+----
 include::.git/hooks/pre-commit[]
-,===
+----
 
 === You should name it as `REAMDE_.adoc`, rather thann `README.adoc`
 
@@ -119,7 +119,7 @@ If you put your README file in your repository's root, docs, or hidden .github d
 
 So, what if you have 2 files `README.adoc` and `README.md` together in the repository's root, which file will be rendered when you visit the top page? --- I examined and found out that `README.adoc` wins, `README.md` won't be surfaced. If I make a `README.adoc` file to generate `README.md`, yes, it works. But GitHub won't choose the `README.md`. It will choose the `README.adoc`. I do not like this to happen. How can I overcome this problem?
 
-Name your Asciidoc document as `README_.adoc` with a meaningless underbar character appended. The `readmeconv.sh` script can convert the `README_.adoc` file into `README.md`, and GitHub will happily surface the generated `README.md` to us. 
+*You should name your Asciidoc document as `README_.adoc`* with a meaningless underbar character appended. The `readmeconv.sh` script can convert the `README_.adoc` file into `README.md`. GitHub will not choose `README_.adoc` as the repositories README; it will find `README.md` and happily surface it to us. 
 
 == Conclusion
 

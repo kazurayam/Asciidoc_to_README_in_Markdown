@@ -98,7 +98,7 @@ I edited the `<projectDir>/.git/hooks/pre-commit` so that it executes the `readm
     # convert README_.adoc to README.md
     ./readmeconv.sh
 
-### Name it `REAMDE_.adoc`, not `README.adoc`
+### Name it `README_.adoc`, not `README.adoc`
 
 The official GitHub doc [About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) says:
 
@@ -110,4 +110,4 @@ So, what if you have 2 files `README.adoc` and `README.md` together in the repos
 
 ## Conclusion
 
-The `include` directive of Asciidoc makes writing documents of software projects easier and fun. With `include`, I do not have to copy the lines of code from the program sources into the README document; I do not have to be worried about forgetting re-copy&paste after the program sources' revisions. The workaround by @chevdoor worked for me. It enabled me to author README documents of my GitHub repositories in Asciidoc.
+The `include` directive makes it far easier and enjoyable writing documents of software projects. With `include`, I do not have to copy the lines of code from the program sources into the README document; I do not have to be worried about forgetting to re-copy&paste after the program sources are updated. The workaroud by @chevdoor worked for me. It enabled me to author README documents of my GitHub repositories in Asciidoc.

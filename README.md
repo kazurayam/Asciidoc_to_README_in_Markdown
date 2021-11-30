@@ -70,7 +70,7 @@ I will describe here what I have done to author [README of this repository](http
 
 #### pandoc
 
-I needed [pandoc](https://pandoc.org/), a universal document converter. I installed pandoc using \[Homebrew\](<https://brew.sh/>).
+I needed [pandoc](https://pandoc.org/), a universal document converter. I installed pandoc using [Homebrew](https://brew.sh).
 
     $ brew install pandoc
 
@@ -86,9 +86,7 @@ I added a shell script named [&lt;projectDir>/readmeconv.sh](readmeconv.sh) in t
 
 I changed the mode of this file *executable*.
 
-    ----.
     $ chmod +x ./readmeconv.sh
-    ----
 
 ### Git hook
 
@@ -106,7 +104,7 @@ The official GitHub doc [About READMEs](https://docs.github.com/en/repositories/
 
     If you put your README file in your repository's root, docs, or hidden .github directory, GitHub will recognize and automatically surface your README to repository visitors.
 
-So, what if you have 2 files `README.adoc` and `README.md` together in the repository’s root, which file will be rendered when you visit the top page? --- I examined and found out that `README.adoc` wins, `README.md` won’t be surfaced. If I make a `README.adoc` file to generate `README.md`, yes, it works. But GitHub won’t choose the `README.md`. It will choose the `README.adoc`. I do not like this to happen. How can I overcome this problem?
+So, what if you have 2 files `README.adoc` and `README.md` together in the repository’s root, which file will be rendered when you visit the top page? --- I examined and found out that `README.adoc` wins, `README.md` won’t be surfaced. If I make a `README.adoc` file to generate `README.md`, yes, the shell script will generate it. But GitHub won’t choose the `README.md` as the repositories top page. It will choose the `README.adoc`. I do not like this to happen. How can I overcome this problem?
 
 **You should name your Asciidoc document as `README_.adoc`** with a meaningless underbar character appended. The `readmeconv.sh` script can convert the `README_.adoc` file into `README.md`. GitHub will not choose `README_.adoc` as the repositories README; it will find `README.md` and happily surface it to us.
 

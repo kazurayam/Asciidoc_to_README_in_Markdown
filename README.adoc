@@ -7,22 +7,23 @@ In a GitHub repository, you can make a file named `README.adoc` in https://ascii
 - https://github.com/kazurayam/IncludeIsNotSupportedInGithubFlavoredAsciidoc-a_workaround/blob/master/article.adoc[article.adoc]
 
 This looks very nice! You can enjoy the Asciidoc capabilities to author your documents and publish them in GitHub.
-However, there is a caveat in GitHub Flavored Asciidoc. *GitHub Flavored Asciidoc does not support the `include::path/to/file[]` directive.* See the subsection titled "Include directive" at the tail of https://github.com/kazurayam/IncludeIsNotSupportedInGithubFlavoredAsciidoc-a_workaround/blob/master/article.adoc[article.adoc].
+However, there is a caveat in GitHub Flavored Asciidoc. *GitHub Flavored Asciidoc (GFA) does not support the `include::path/to/file[]` directive.* See the subsection titled "Include directive" at the tail of https://github.com/kazurayam/IncludeIsNotSupportedInGithubFlavoredAsciidoc-a_workaround/blob/master/article.adoc[article.adoc].
 
 image::docs/images/Include_directive_not_working.png[Include directive not working]
 
 I intended to embed the source code of my Java program into the article for reference. I expected to see something as follows.
 
-Here we include the source code of the file `src/main/java/my/Hello.java`.
+image::docs/images/Include_directive_as_expected.png[Include directive as expected]
 
-== Include directive
+I need the Include directive in Asciidoc. Seriously! The include directive is the very reason why I want to use Asciidoc, instead of Markdown, to author the README doc of my software projects on GitHub. 
 
-[source,java]
-----
-include::src/main/java/my/Hello.java[]
-----
+Why GitHub does not support Include directive in Asciidoc? --- There is a discussion about it, which was opened 4 years ago and still remain open.
 
+- https://github.com/github/markup/issues/1095[Asciidoctor: support include directives for other asciidoc files #1095]
 
-A workaround developed by @chevdoor at 9th June 2021
-at https://github.com/github/markup/issues/1095
-You need to install `pandoc` and `asciidoctor`.
+As far as I learned from this discussion, it seems unlikely that GitHub adds Include directive support in GFA in future. Very disappointing. Any workaround?
+
+== Solution
+
+In https://github.com/github/markup/issues/1095[the discussion], @chevdoor posted a workround at 9th June 2021.
+

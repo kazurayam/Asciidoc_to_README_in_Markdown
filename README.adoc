@@ -1,8 +1,8 @@
-= Title
+= Include directive is not supported in Github-flavored Asciidoc --- a workaround
 
-In a GitHub repository, you can make a file `README.adoc` in Asciidoc format.
-GitHub happily renders the file in browser.
-You can enjoy Asciidoc capabilities to author documents.
+In a GitHub repository, you can make a file named `README.adoc` in [Asciidoc](https://asciidoc-py.github.io/index.html) format. GitHub is able to convert Asciidoc text to HTML runtime so that it renders in browsers. You can enjoy Asciidoc capabilities to author your documents and publish them in GitHub. A sample is here: 
+
+- 
 
 
 

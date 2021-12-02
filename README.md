@@ -54,6 +54,16 @@ In [the discussion](https://github.com/github/markup/issues/1095), @chevdoor pos
 
     To cheer us up, this option comes with a small benefit: your asciidoc is now linted before you ever commit, so you will spot wrong includes paths before your commit makes it in.
 
+In short, we will not depend on GitHub for converting a asciidoc document into web page (HTML). His shell script will drive the command line tools (*asciidoctor* and *pandoc*) to convert an asciidoc document into a `README.md` file. Then just commit `README.md` and push it.
+
+[plantuml]
+----
+@startuml
+Bob -> Alice : hello
+@enduml
+----
+
+
 This worked for me! So I decided to introduce it into my projects.
 
 ## Description

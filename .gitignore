@@ -4,3 +4,6 @@
 
 # IntelliJ IDEA
 /.idea/
+
+# VSCode
+/out/
